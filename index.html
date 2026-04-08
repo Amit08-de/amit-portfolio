@@ -3,248 +3,255 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Amit Bhowmik | Market Analyst</title>
+<title>Amit Bhowmik | Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+*{margin:0;padding:0;box-sizing:border-box}
 
-body {
-    font-family: 'Inter', sans-serif;
-    background: #000;
-    color: #fff;
-    overflow-x: hidden;
+body{
+  font-family:'Inter',sans-serif;
+  background:#000;
+  color:#fff;
+  overflow-x:hidden;
 }
 
-/* NAV */
-nav {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(12px);
-    display: flex;
-    justify-content: center;
-    padding: 15px;
-    z-index: 1000;
+/* BACKGROUND GLOW */
+body::before{
+  content:"";
+  position:fixed;
+  width:500px;
+  height:500px;
+  background:radial-gradient(circle,#4f9cff33,transparent);
+  top:-100px;
+  left:-100px;
+  z-index:-1;
 }
 
-nav a {
-    color: #aaa;
-    margin: 0 20px;
-    text-decoration: none;
-    font-size: 14px;
-    transition: 0.3s;
+body::after{
+  content:"";
+  position:fixed;
+  width:500px;
+  height:500px;
+  background:radial-gradient(circle,#9333ea33,transparent);
+  bottom:-100px;
+  right:-100px;
+  z-index:-1;
 }
-
-nav a:hover { color: #fff; }
 
 /* HERO */
-.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: radial-gradient(circle at center, #111, #000);
-    text-align: center;
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
 }
 
-.hero h1 {
-    font-size: 64px;
-    font-weight: 700;
+.hero h1{
+  font-size:60px;
 }
 
-.typing {
-    margin-top: 10px;
-    font-size: 22px;
-    color: #aaa;
-    height: 30px;
+.typing{
+  margin-top:10px;
+  color:#aaa;
 }
 
-/* SECTIONS */
-section {
-    padding: 100px 20px;
-    max-width: 900px;
-    margin: auto;
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 1s ease;
+/* SECTION */
+section{
+  padding:80px 10%;
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
 }
 
-section.show {
-    opacity: 1;
-    transform: translateY(0);
+section.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
-h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
+/* CARD */
+.card{
+  background:rgba(255,255,255,0.05);
+  padding:25px;
+  border-radius:20px;
+  margin:20px 0;
+  position:relative;
+  overflow:hidden;
+  transition:0.3s;
 }
 
-/* CARDS */
-.card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 25px;
-    border-radius: 18px;
-    margin: 20px 0;
-    backdrop-filter: blur(12px);
-    transition: 0.4s;
+.card:hover{
+  transform:translateY(-8px);
 }
 
-.card:hover {
-    transform: translateY(-8px) scale(1.02);
+.card::before{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:linear-gradient(120deg,transparent,#ffffff22,transparent);
+  left:-100%;
+  transition:0.5s;
+}
+
+.card:hover::before{
+  left:100%;
+}
+
+/* BUTTON */
+.btn{
+  display:inline-block;
+  margin-top:10px;
+  padding:10px 20px;
+  border:1px solid #4f9cff;
+  border-radius:30px;
+  color:#4f9cff;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.btn:hover{
+  background:#4f9cff;
+  color:#000;
+  transform:scale(1.05);
 }
 
 /* SKILLS */
-.skills span {
-    display: inline-block;
-    border: 1px solid #444;
-    padding: 10px 15px;
-    margin: 6px;
-    border-radius: 30px;
-    transition: 0.3s;
+.skills span{
+  display:inline-block;
+  border:1px solid #444;
+  padding:10px;
+  margin:5px;
+  border-radius:20px;
 }
 
-.skills span:hover {
-    background: #fff;
-    color: #000;
+/* VIDEO */
+iframe{
+  width:100%;
+  height:400px;
+  border-radius:20px;
+  border:none;
 }
 
-/* LINKS */
-a {
-    color: #2997ff;
-    text-decoration: none;
-}
-
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 40px;
-    color: #666;
+/* PDF */
+.pdf{
+  width:100%;
+  height:600px;
+  border-radius:20px;
+  border:none;
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
-</nav>
-
+<!-- HERO -->
 <div class="hero">
-    <h1>Amit Bhowmik</h1>
-    <div class="typing" id="typing"></div>
+  <h1>Amit Bhowmik</h1>
+  <div class="typing" id="typing"></div>
 </div>
 
-<section id="about">
-    <h2>About Me</h2>
-    <div class="card">
-        I am a PGDM student passionate about understanding consumer behaviour,
-        market trends, and data-driven decision making.
-    </div>
-</section>
-
-<section id="skills">
-    <h2>Skills</h2>
-    <div class="skills">
-        <span>MS Excel</span>
-        <span>SPSS</span>
-        <span>Power BI</span>
-        <span>SQL</span>
-        <span>PowerPoint</span>
-        <span>Tally</span>
-    </div>
-</section>
-
-<section id="projects">
-    <h2>Projects</h2>
-
-    <div class="card">
-        <h3>Research Paper</h3>
-        <p>AI impact on human intelligence.</p>
-        <a href="https://drive.google.com/file/d/1jfzUcZ2zXuS5Ca-cxQFtaz-4BySjDwKV/view" target="_blank">View →</a>
-    </div>
-
-    <div class="card">
-        <h3>Field Visit Report</h3>
-        <p>Consumer behaviour study.</p>
-        <a href="https://docs.google.com/document/d/1lgRmztLAxYXrwkqFrbmWV1QvsYQiom3Z/edit" target="_blank">View →</a>
-    </div>
-
-</section>
-
+<!-- ABOUT -->
 <section>
-    <h2>Travel Experience</h2>
-    <div class="card">
-        <iframe width="100%" height="315"
-        src="https://www.youtube.com/embed/IKMuNhfclac"
-        frameborder="0" allowfullscreen></iframe>
-    </div>
+<h2>About Me</h2>
+<div class="card">
+PGDM student focused on market analysis, consumer behaviour and data-driven decision making.
+</div>
 </section>
 
+<!-- SKILLS -->
 <section>
-    <h2>Achievements</h2>
-    <div class="card">
-        🏏 State-Level Cricket Player
-    </div>
+<h2>Skills</h2>
+<div class="skills">
+<span>Excel</span>
+<span>SPSS</span>
+<span>Power BI</span>
+<span>SQL</span>
+<span>Tally</span>
+<span>PowerPoint</span>
+</div>
 </section>
 
-<section id="contact">
-    <h2>Contact</h2>
-    <div class="card">
-        <a href="https://www.linkedin.com/in/amit-bhowmik-922542376" target="_blank">LinkedIn →</a>
-    </div>
+<!-- RESEARCH -->
+<section>
+<h2>Research & Field Work</h2>
+
+<div style="display:flex;gap:20px;flex-wrap:wrap;">
+
+<div class="card" style="flex:1;min-width:300px;">
+<h3>AI vs Human Creativity</h3>
+<p>Study on how AI affects creativity, thinking, and originality.</p>
+<a href="research.pdf" target="_blank" class="btn">Open Research →</a>
+</div>
+
+<div class="card" style="flex:1;min-width:300px;">
+<h3>Consumer Behaviour Study</h3>
+<p>Field research at Grand Venice Mall analyzing buying behaviour.</p>
+<a href="field-report.docx" target="_blank" class="btn">Open Report →</a>
+</div>
+
+</div>
+
+<h3 style="margin-top:40px;">Live Research Preview</h3>
+<iframe src="research.pdf" class="pdf"></iframe>
+
 </section>
 
-<footer>
-© 2026 Amit Bhowmik
-</footer>
+<!-- VIDEO -->
+<section>
+<h2>Travel Experience</h2>
+<div class="card">
+<iframe src="https://www.youtube.com/embed/IKMuNhfclac"></iframe>
+</div>
+</section>
 
+<!-- ACHIEVEMENT -->
+<section>
+<h2>Achievement</h2>
+<div class="card">🏏 State Level Cricket Player</div>
+</section>
+
+<!-- CONTACT -->
+<section>
+<h2>Contact</h2>
+<div class="card">
+<a href="https://www.linkedin.com/in/amit-bhowmik-922542376" class="btn">LinkedIn →</a>
+</div>
+</section>
+
+<!-- SCRIPTS -->
 <script>
-/* TYPING EFFECT */
-const text = ["Market Analyst", "Consumer Behaviour Explorer", "Data-Driven Thinker"];
-let i = 0, j = 0, currentText = "", isDeleting = false;
+// Typing effect
+const text=["Market Analyst","Consumer Behaviour Enthusiast","Data Driven Thinker"];
+let i=0,j=0,current="",del=false;
 
-function type() {
-    if (i < text.length) {
-        if (!isDeleting && j <= text[i].length) {
-            currentText = text[i].substring(0, j++);
-        } else if (isDeleting && j >= 0) {
-            currentText = text[i].substring(0, j--);
-        }
-
-        document.getElementById("typing").innerHTML = currentText;
-
-        if (j === text[i].length) isDeleting = true;
-        if (j === 0 && isDeleting) {
-            isDeleting = false;
-            i++;
-        }
-    } else {
-        i = 0;
-    }
-
-    setTimeout(type, isDeleting ? 50 : 100);
+function type(){
+if(i<text.length){
+if(!del && j<=text[i].length){
+current=text[i].substring(0,j++);
+}else if(del && j>=0){
+current=text[i].substring(0,j--);
+}
+document.getElementById("typing").innerHTML=current;
+if(j==text[i].length) del=true;
+if(j==0 && del){del=false;i++;}
+}else{i=0}
+setTimeout(type,100);
 }
 type();
 
-/* SCROLL ANIMATION */
-const sections = document.querySelectorAll("section");
-
-window.addEventListener("scroll", () => {
-    sections.forEach(sec => {
-        const top = sec.getBoundingClientRect().top;
-        if (top < window.innerHeight - 100) {
-            sec.classList.add("show");
-        }
-    });
+// Scroll animation
+const sections=document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+sections.forEach(sec=>{
+const top=sec.getBoundingClientRect().top;
+if(top<window.innerHeight-100){
+sec.classList.add("show");
+}
+});
 });
 </script>
 
