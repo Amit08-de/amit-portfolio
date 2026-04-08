@@ -3,120 +3,156 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Amit Bhowmik | Market Analyst</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #0f172a;
-    color: white;
+    font-family: 'Inter', sans-serif;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
 }
 
-/* HEADER */
-header {
+/* NAV */
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    z-index: 1000;
+}
+
+nav a {
+    color: #aaa;
+    margin: 0 20px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav a:hover { color: #fff; }
+
+/* HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #111, #000);
     text-align: center;
-    padding: 100px 20px;
-    background: linear-gradient(135deg, #1e293b, #020617);
 }
 
-h1 {
-    font-size: 52px;
-    margin-bottom: 10px;
+.hero h1 {
+    font-size: 64px;
+    font-weight: 700;
 }
 
-header p {
-    font-size: 18px;
-    opacity: 0.8;
+.typing {
+    margin-top: 10px;
+    font-size: 22px;
+    color: #aaa;
+    height: 30px;
 }
 
-/* SECTION */
+/* SECTIONS */
 section {
-    padding: 70px 20px;
-    max-width: 950px;
+    padding: 100px 20px;
+    max-width: 900px;
     margin: auto;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease;
+}
+
+section.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 h2 {
-    font-size: 32px;
-    color: #38bdf8;
-    margin-bottom: 25px;
+    font-size: 36px;
+    margin-bottom: 20px;
 }
 
 /* CARDS */
 .card {
-    background: #1e293b;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
     padding: 25px;
+    border-radius: 18px;
     margin: 20px 0;
-    border-radius: 14px;
-    transition: 0.3s;
+    backdrop-filter: blur(12px);
+    transition: 0.4s;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-}
-
-/* HIGHLIGHT BOX */
-.highlight {
-    background: #1d4ed8;
-    padding: 20px;
-    border-radius: 12px;
-    margin-top: 15px;
+    transform: translateY(-8px) scale(1.02);
 }
 
 /* SKILLS */
 .skills span {
     display: inline-block;
-    background: #334155;
+    border: 1px solid #444;
     padding: 10px 15px;
     margin: 6px;
-    border-radius: 25px;
-    font-size: 14px;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.skills span:hover {
+    background: #fff;
+    color: #000;
 }
 
 /* LINKS */
 a {
-    color: #38bdf8;
+    color: #2997ff;
     text-decoration: none;
-}
-
-/* VIDEO */
-iframe {
-    margin-top: 15px;
-    border-radius: 10px;
 }
 
 /* FOOTER */
 footer {
     text-align: center;
-    padding: 30px;
-    background: #020617;
-    opacity: 0.7;
+    padding: 40px;
+    color: #666;
 }
 </style>
 </head>
 
 <body>
 
-<header>
+<nav>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="hero">
     <h1>Amit Bhowmik</h1>
-    <p>Market Analyst | Turning Consumer Behaviour into Business Insights</p>
-</header>
+    <div class="typing" id="typing"></div>
+</div>
 
-<section>
+<section id="about">
     <h2>About Me</h2>
-    <p>
-        I am a PGDM student focused on understanding consumer behaviour and applying data-driven insights 
-        to improve business decisions.
-    </p>
-
-    <div class="highlight">
-        I analyze consumer behaviour to uncover insights that improve business performance.
+    <div class="card">
+        I am a PGDM student passionate about understanding consumer behaviour,
+        market trends, and data-driven decision making.
     </div>
 </section>
 
-<section>
-    <h2>Analytical Skills</h2>
+<section id="skills">
+    <h2>Skills</h2>
     <div class="skills">
         <span>MS Excel</span>
         <span>SPSS</span>
@@ -127,97 +163,90 @@ footer {
     </div>
 </section>
 
-<section>
-    <h2>Tools in Action</h2>
-    <div class="card">
-        <p>Excel → Data analysis & reporting</p>
-        <p>SPSS → Statistical insights</p>
-        <p>Power BI → Visualization</p>
-        <p>SQL → Data handling</p>
-    </div>
-</section>
-
-<section>
-    <h2>Projects & Research</h2>
+<section id="projects">
+    <h2>Projects</h2>
 
     <div class="card">
         <h3>Research Paper</h3>
-        <p>Analyzed AI’s impact on human intelligence.</p>
-
-        <div class="highlight">
-            Insight: AI improves efficiency but may reduce independent thinking.
-        </div>
-
-        <a href="https://drive.google.com/file/d/1jfzUcZ2zXuS5Ca-cxQFtaz-4BySjDwKV/view" target="_blank">
-        View Research →
-        </a>
+        <p>AI impact on human intelligence.</p>
+        <a href="https://drive.google.com/file/d/1jfzUcZ2zXuS5Ca-cxQFtaz-4BySjDwKV/view" target="_blank">View →</a>
     </div>
 
     <div class="card">
         <h3>Field Visit Report</h3>
-        <p>Studied real-world consumer behaviour in retail environments.</p>
-
-        <div class="highlight">
-            Outcome: Identified key triggers influencing purchase decisions.
-        </div>
-
-        <a href="https://docs.google.com/document/d/1lgRmztLAxYXrwkqFrbmWV1QvsYQiom3Z/edit" target="_blank">
-        View Report →
-        </a>
+        <p>Consumer behaviour study.</p>
+        <a href="https://docs.google.com/document/d/1lgRmztLAxYXrwkqFrbmWV1QvsYQiom3Z/edit" target="_blank">View →</a>
     </div>
 
 </section>
 
 <section>
-    <h2>Case Study</h2>
+    <h2>Travel Experience</h2>
     <div class="card">
-        <p><b>Retail Consumer Behaviour Analysis</b></p>
-        <p>Observed 50+ consumers and identified 3 behavioural patterns.</p>
-
-        <div class="highlight">
-            Recommendation: Improve product placement & promotional visibility.
-        </div>
-    </div>
-</section>
-
-<section>
-    <h2>Travel & Perspective</h2>
-    <div class="card">
-        <p>Understanding diverse consumer behaviour across regions.</p>
-
         <iframe width="100%" height="315"
         src="https://www.youtube.com/embed/IKMuNhfclac"
-        frameborder="0" allowfullscreen>
-        </iframe>
+        frameborder="0" allowfullscreen></iframe>
     </div>
 </section>
 
 <section>
     <h2>Achievements</h2>
     <div class="card">
-        State-Level Cricket 🏏
+        🏏 State-Level Cricket Player
     </div>
 </section>
 
-<section>
-    <h2>Career Objective</h2>
-    <div class="highlight">
-        Seeking opportunities in Market Research and Business Analysis to apply analytical and consumer insights.
-    </div>
-</section>
-
-<section>
+<section id="contact">
     <h2>Contact</h2>
     <div class="card">
-        <a href="https://www.linkedin.com/in/amit-bhowmik-922542376" target="_blank">
-        Connect on LinkedIn →
-        </a>
+        <a href="https://www.linkedin.com/in/amit-bhowmik-922542376" target="_blank">LinkedIn →</a>
     </div>
 </section>
 
 <footer>
-© 2026 Amit Bhowmik | Market Analyst Portfolio
+© 2026 Amit Bhowmik
 </footer>
+
+<script>
+/* TYPING EFFECT */
+const text = ["Market Analyst", "Consumer Behaviour Explorer", "Data-Driven Thinker"];
+let i = 0, j = 0, currentText = "", isDeleting = false;
+
+function type() {
+    if (i < text.length) {
+        if (!isDeleting && j <= text[i].length) {
+            currentText = text[i].substring(0, j++);
+        } else if (isDeleting && j >= 0) {
+            currentText = text[i].substring(0, j--);
+        }
+
+        document.getElementById("typing").innerHTML = currentText;
+
+        if (j === text[i].length) isDeleting = true;
+        if (j === 0 && isDeleting) {
+            isDeleting = false;
+            i++;
+        }
+    } else {
+        i = 0;
+    }
+
+    setTimeout(type, isDeleting ? 50 : 100);
+}
+type();
+
+/* SCROLL ANIMATION */
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+    sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            sec.classList.add("show");
+        }
+    });
+});
+</script>
 
 </body>
 </html>
