@@ -17,19 +17,19 @@ body{
   overflow-x:hidden;
 }
 
-/* ===== BACKGROUND GLOW ===== */
+/* GLOW BACKGROUND */
 body::before, body::after{
   content:"";
   position:fixed;
-  width:500px;
-  height:500px;
-  filter:blur(120px);
+  width:600px;
+  height:600px;
+  filter:blur(140px);
   z-index:-1;
 }
-body::before{background:#4da6ff;top:-100px;left:-100px;}
-body::after{background:#9333ea;bottom:-100px;right:-100px;}
+body::before{background:#4da6ff;top:-150px;left:-150px;}
+body::after{background:#9333ea;bottom:-150px;right:-150px;}
 
-/* ===== NAV ===== */
+/* NAV */
 nav{
   position:fixed;
   width:100%;
@@ -37,17 +37,15 @@ nav{
   display:flex;
   justify-content:space-between;
   backdrop-filter:blur(15px);
-  z-index:10;
 }
 nav a{
   color:#aaa;
   margin-left:20px;
   text-decoration:none;
-  transition:0.3s;
 }
-nav a:hover, nav a.active{color:#fff}
+nav a:hover{color:#fff}
 
-/* ===== HERO ===== */
+/* HERO */
 .hero{
   height:100vh;
   display:flex;
@@ -58,29 +56,22 @@ nav a:hover, nav a.active{color:#fff}
 }
 .hero h1{
   font-size:70px;
-  font-weight:700;
   background:linear-gradient(90deg,#fff,#aaa);
   -webkit-background-clip:text;
   color:transparent;
 }
-.hero p{
-  margin-top:10px;
-  color:#aaa;
-}
+.hero p{color:#aaa;margin-top:10px}
 
-/* ===== SECTION ===== */
+/* SECTION */
 section{
   padding:120px 10%;
   opacity:0;
   transform:translateY(60px);
   transition:1s;
 }
-section.show{
-  opacity:1;
-  transform:translateY(0);
-}
+section.show{opacity:1;transform:translateY(0);}
 
-/* ===== CARD ===== */
+/* CARD */
 .card{
   background:rgba(255,255,255,0.05);
   backdrop-filter:blur(20px);
@@ -93,7 +84,14 @@ section.show{
   transform:translateY(-10px) scale(1.02);
 }
 
-/* ===== BUTTON ===== */
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:25px;
+}
+
+/* BUTTON */
 .btn{
   display:inline-block;
   margin-top:15px;
@@ -102,37 +100,54 @@ section.show{
   border:1px solid #4da6ff;
   color:#4da6ff;
   text-decoration:none;
-  transition:0.3s;
 }
 .btn:hover{
   background:#4da6ff;
   color:#000;
 }
 
-/* ===== GRID ===== */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:25px;
-}
-
-/* ===== MEDIA ===== */
+/* VIDEO */
 iframe{
   width:100%;
   height:500px;
-  border:none;
   border-radius:15px;
+  border:none;
 }
 
-/* ===== CONTACT ===== */
+/* FLOAT CONTACT */
+.float-contact{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+.float-btn{
+  padding:15px 20px;
+  border-radius:40px;
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(15px);
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  transition:0.3s;
+}
+.float-btn:hover{
+  transform:scale(1.1);
+  background:#4da6ff;
+  color:#000;
+}
+
+/* CONTACT SECTION */
 .contact a{
   display:block;
   margin:10px 0;
   color:#4da6ff;
-  text-decoration:none;
 }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer{
   text-align:center;
   padding:40px;
@@ -147,60 +162,49 @@ footer{
 <nav>
 <div>Amit</div>
 <div>
-<a href="#about" class="nav-link">About</a>
-<a href="#skills" class="nav-link">Skills</a>
-<a href="#work" class="nav-link">Work</a>
-<a href="#travel" class="nav-link">Travel</a>
-<a href="#contact" class="nav-link">Contact</a>
+<a href="#about">About</a>
+<a href="#work">Work</a>
+<a href="#travel">Travel</a>
+<a href="#contact">Contact</a>
 </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
 <h1>Amit Bhowmik</h1>
-<p>Market Analyst | Consumer Behaviour | Data-Driven Insights</p>
+<p>Market Analyst | Consumer Behaviour | Data Insights</p>
 </div>
 
 <!-- ABOUT -->
 <section id="about">
 <h2>About Me</h2>
 <div class="card">
-I am a PGDM student focused on market analysis and understanding consumer decision-making. I transform data and real-world observations into actionable business insights.
-</div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-<h2>Skills</h2>
-<div class="card">
-MS Excel • SPSS • Power BI • SQL • Tally • PowerPoint
+I analyze consumer behavior and transform data into insights that drive real business decisions.
 </div>
 </section>
 
 <!-- WORK -->
 <section id="work">
-<h2>Research & Case Studies</h2>
+<h2>Research & Work</h2>
 
 <div class="grid">
 
 <div class="card">
 <h3>AI vs Human Creativity</h3>
-<p>Research analyzing how AI impacts creativity and thinking patterns.</p>
 <a href="research.pdf" target="_blank" class="btn">View Research</a>
 </div>
 
 <div class="card">
 <h3>Consumer Behaviour Study</h3>
-<p>Field research at Grand Venice Mall analyzing real-world buying behavior.</p>
 <a href="field-report.pdf" target="_blank" class="btn">View Report</a>
 </div>
 
 </div>
 
-<h3 style="margin-top:50px;">Research Preview</h3>
+<h3 style="margin-top:50px;">Preview</h3>
 <iframe src="research.pdf"></iframe>
 
-<h3 style="margin-top:50px;">Field Study Preview</h3>
+<h3 style="margin-top:50px;">Field Study</h3>
 <iframe src="field-report.pdf"></iframe>
 
 </section>
@@ -208,10 +212,15 @@ MS Excel • SPSS • Power BI • SQL • Tally • PowerPoint
 <!-- TRAVEL -->
 <section id="travel">
 <h2>Travel Experience</h2>
+
 <div class="card">
-<p>Travel helps me understand diverse consumer perspectives and behavior patterns.</p>
 <iframe src="https://www.youtube.com/embed/IKMuNhfclac"></iframe>
 </div>
+
+<div class="card">
+<iframe src="https://www.youtube.com/embed/yUaxRY4Eddo"></iframe>
+</div>
+
 </section>
 
 <!-- CONTACT -->
@@ -219,57 +228,41 @@ MS Excel • SPSS • Power BI • SQL • Tally • PowerPoint
 <h2>Contact</h2>
 
 <a href="https://www.linkedin.com/in/amit-bhowmik-922542376" target="_blank">
-LinkedIn Profile
+LinkedIn
 </a>
 
 <a href="mailto:bhowmika753@gmail.com">
-Email: bhowmika753@gmail.com
+Email
 </a>
 
 <a href="tel:+918250782791">
-Phone: +91 8250782791
+Call
 </a>
 
 <a href="https://wa.me/918250782791" target="_blank">
-WhatsApp Chat
+WhatsApp
 </a>
 
 </section>
 
+<!-- FLOATING CONTACT -->
+<div class="float-contact">
+<a href="https://wa.me/918250782791" class="float-btn">WhatsApp</a>
+<a href="mailto:bhowmika753@gmail.com" class="float-btn">Email</a>
+<a href="tel:+918250782791" class="float-btn">Call</a>
+</div>
+
+<!-- FOOTER -->
 <footer>
 © 2026 Amit Bhowmik — Portfolio
 </footer>
 
 <script>
-// Scroll animation
 const sections=document.querySelectorAll("section");
-
 window.addEventListener("scroll",()=>{
 sections.forEach(sec=>{
 if(sec.getBoundingClientRect().top<window.innerHeight-100){
 sec.classList.add("show");
-}
-});
-});
-
-// Active nav
-const navLinks=document.querySelectorAll(".nav-link");
-
-window.addEventListener("scroll",()=>{
-let current="";
-sections.forEach(sec=>{
-const top=window.scrollY;
-const offset=sec.offsetTop-150;
-const height=sec.offsetHeight;
-if(top>=offset && top<offset+height){
-current=sec.id;
-}
-});
-
-navLinks.forEach(link=>{
-link.classList.remove("active");
-if(link.getAttribute("href").includes(current)){
-link.classList.add("active");
 }
 });
 });
