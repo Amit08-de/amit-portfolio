@@ -12,19 +12,18 @@
 
 body{
   font-family:'Inter',sans-serif;
-  background:#f9fafb;
-  color:#111;
+  background:#0a0a0a;
+  color:#fff;
   scroll-behavior:smooth;
 }
 
-/* NAVBAR */
+/* NAV */
 nav{
   position:fixed;
   top:0;
   width:100%;
-  background:rgba(255,255,255,0.9);
+  background:rgba(0,0,0,0.7);
   backdrop-filter:blur(10px);
-  border-bottom:1px solid #eee;
   display:flex;
   justify-content:center;
   gap:30px;
@@ -33,32 +32,14 @@ nav{
 }
 
 nav a{
+  color:#aaa;
   text-decoration:none;
-  color:#555;
-  font-size:14px;
   position:relative;
-  transition:0.3s;
 }
 
-nav a::after{
-  content:"";
-  position:absolute;
-  width:0%;
-  height:2px;
-  background:#2563eb;
-  left:0;
-  bottom:-4px;
-  transition:0.3s;
-}
-
-nav a:hover::after,
-nav a.active::after{
-  width:100%;
-}
-
-nav a.active{
-  color:#2563eb;
-  font-weight:600;
+nav a.active,
+nav a:hover{
+  color:#4da6ff;
 }
 
 /* HEADER */
@@ -68,15 +49,12 @@ header{
 }
 
 header h1{
-  font-size:44px;
-  font-weight:600;
-  letter-spacing:-1px;
+  font-size:48px;
 }
 
 header p{
-  color:#555;
-  margin-top:12px;
-  font-size:16px;
+  color:#aaa;
+  margin-top:10px;
 }
 
 /* SECTION */
@@ -86,13 +64,9 @@ section{
   padding:80px 20px;
   opacity:0;
   transform:translateY(40px);
-  transition:0.9s ease;
-  border-bottom:1px solid #eee;
+  transition:0.8s;
+  border-bottom:1px solid #222;
 }
-section:last-of-type{
-  border-bottom:none;
-}
-
 section.show{
   opacity:1;
   transform:translateY(0);
@@ -101,40 +75,33 @@ section.show{
 h2{
   font-size:28px;
   margin-bottom:20px;
-  font-weight:600;
 }
 
 /* CARD */
 .card{
-  background:#fff;
-  border:1px solid #eee;
+  background:#111;
+  padding:25px;
   border-radius:12px;
-  padding:22px;
   margin-bottom:20px;
-  transition:all 0.3s ease;
+  transition:0.3s;
 }
-
 .card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 12px 30px rgba(0,0,0,0.06);
+  transform:translateY(-5px);
 }
 
 /* BUTTON */
 .btn{
   display:inline-block;
-  margin-top:12px;
+  margin-top:10px;
   padding:8px 16px;
   border-radius:6px;
-  border:1px solid #2563eb;
-  color:#2563eb;
+  border:1px solid #4da6ff;
+  color:#4da6ff;
   text-decoration:none;
-  font-size:14px;
-  transition:0.25s;
 }
-
 .btn:hover{
-  background:#2563eb;
-  color:#fff;
+  background:#4da6ff;
+  color:#000;
 }
 
 /* PDF */
@@ -143,20 +110,14 @@ iframe{
   height:420px;
   margin-top:15px;
   border-radius:10px;
-  border:1px solid #ddd;
+  border:none;
 }
 
 /* CONTACT */
 .contact a{
   display:block;
-  margin-bottom:12px;
-  color:#2563eb;
-  text-decoration:none;
-  transition:0.3s;
-}
-
-.contact a:hover{
-  transform:translateX(6px);
+  margin-bottom:10px;
+  color:#4da6ff;
 }
 
 /* FOOTER */
@@ -164,18 +125,18 @@ footer{
   text-align:center;
   padding:40px;
   color:#888;
-  font-size:14px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 <nav>
   <a href="#about" class="nav-link">About</a>
   <a href="#skills" class="nav-link">Skills</a>
   <a href="#research" class="nav-link">Research</a>
+  <a href="#video" class="nav-link">Travel</a>
   <a href="#contact" class="nav-link">Contact</a>
 </nav>
 
@@ -189,9 +150,8 @@ footer{
 <section id="about">
   <h2>About Me</h2>
   <p>
-    I am a PGDM student specializing in market analysis and consumer behaviour.
-    I focus on understanding how people make decisions and translating data into
-    meaningful business insights.
+    I am a PGDM student focused on market analysis and consumer behaviour.
+    I convert real-world observations into actionable business insights.
   </p>
 </section>
 
@@ -207,16 +167,30 @@ footer{
 
   <div class="card">
     <h3>AI vs Human Creativity</h3>
-    <p>Research on the impact of AI on creativity and decision-making.</p>
+    <p>Research on AI’s impact on creativity.</p>
     <a href="research.pdf" target="_blank" class="btn">View Research</a>
     <iframe src="research.pdf"></iframe>
   </div>
 
   <div class="card">
-    <h3>Consumer Behaviour Field Study</h3>
-    <p>Field study analyzing real-time consumer decisions in different environments.</p>
+    <h3>Consumer Behaviour Study</h3>
+    <p>Field study on real consumer decision making.</p>
     <a href="field-report.pdf" target="_blank" class="btn">View Report</a>
     <iframe src="field-report.pdf"></iframe>
+  </div>
+
+</section>
+
+<!-- 🎥 VIDEO SECTION (FIXED) -->
+<section id="video">
+  <h2>Travel Experience</h2>
+
+  <div class="card">
+    <p>
+      Travel helps me understand diverse consumer perspectives and real-world behavior.
+    </p>
+
+    <iframe src="https://www.youtube.com/embed/IKMuNhfclac" allowfullscreen></iframe>
   </div>
 
 </section>
@@ -254,26 +228,24 @@ const sections = document.querySelectorAll("section");
 
 window.addEventListener("scroll",()=>{
   sections.forEach(sec=>{
-    const top = sec.getBoundingClientRect().top;
-    if(top < window.innerHeight - 100){
+    if(sec.getBoundingClientRect().top < window.innerHeight - 100){
       sec.classList.add("show");
     }
   });
 });
 
-// Active nav highlight
+// Active nav
 const navLinks = document.querySelectorAll(".nav-link");
 
 window.addEventListener("scroll",()=>{
-  let current = "";
-
+  let current="";
   sections.forEach(sec=>{
-    const top = window.scrollY;
-    const offset = sec.offsetTop - 150;
-    const height = sec.offsetHeight;
+    const top=window.scrollY;
+    const offset=sec.offsetTop-150;
+    const height=sec.offsetHeight;
 
-    if(top >= offset && top < offset + height){
-      current = sec.getAttribute("id");
+    if(top>=offset && top<offset+height){
+      current=sec.id;
     }
   });
 
