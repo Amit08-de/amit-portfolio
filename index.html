@@ -3,217 +3,286 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Amit Bhowmik | Market Analyst</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+*{margin:0;padding:0;box-sizing:border-box}
+
 body{
-    font-family:'Inter',sans-serif;
-    background:#000;
-    color:#fff;
-    overflow-x:hidden;
+  font-family:'Inter',sans-serif;
+  background:#f9fafb;
+  color:#111;
+  scroll-behavior:smooth;
 }
 
-/* NAV */
+/* NAVBAR */
 nav{
-    position:fixed;
-    width:100%;
-    padding:15px 10%;
-    background:rgba(0,0,0,0.6);
-    backdrop-filter:blur(10px);
-    display:flex;
-    justify-content:space-between;
-    z-index:1000;
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(255,255,255,0.9);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid #eee;
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  padding:15px;
+  z-index:1000;
 }
 
 nav a{
-    color:#aaa;
-    text-decoration:none;
-    margin-left:20px;
+  text-decoration:none;
+  color:#555;
+  font-size:14px;
+  position:relative;
+  transition:0.3s;
 }
 
-/* HERO */
+nav a::after{
+  content:"";
+  position:absolute;
+  width:0%;
+  height:2px;
+  background:#2563eb;
+  left:0;
+  bottom:-4px;
+  transition:0.3s;
+}
+
+nav a:hover::after,
+nav a.active::after{
+  width:100%;
+}
+
+nav a.active{
+  color:#2563eb;
+  font-weight:600;
+}
+
+/* HEADER */
 header{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:radial-gradient(circle at center,#111,#000);
+  text-align:center;
+  padding:140px 20px 80px;
 }
 
 header h1{
-    font-size:3.5rem;
+  font-size:44px;
+  font-weight:600;
+  letter-spacing:-1px;
 }
 
-.typing{
-    color:#007aff;
-    font-weight:600;
+header p{
+  color:#555;
+  margin-top:12px;
+  font-size:16px;
 }
 
 /* SECTION */
 section{
-    padding:100px 10%;
+  max-width:900px;
+  margin:auto;
+  padding:80px 20px;
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.9s ease;
+  border-bottom:1px solid #eee;
+}
+section:last-of-type{
+  border-bottom:none;
+}
+
+section.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
 h2{
-    font-size:2.2rem;
-    margin-bottom:30px;
+  font-size:28px;
+  margin-bottom:20px;
+  font-weight:600;
 }
 
 /* CARD */
 .card{
-    background:rgba(255,255,255,0.05);
-    border-radius:20px;
-    padding:25px;
-    margin-bottom:25px;
-    backdrop-filter:blur(10px);
-    transition:0.3s;
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:12px;
+  padding:22px;
+  margin-bottom:20px;
+  transition:all 0.3s ease;
 }
 
 .card:hover{
-    transform:translateY(-10px) scale(1.02);
+  transform:translateY(-6px);
+  box-shadow:0 12px 30px rgba(0,0,0,0.06);
 }
 
 /* BUTTON */
 .btn{
-    display:inline-block;
-    margin-top:10px;
-    padding:10px 20px;
-    border-radius:25px;
-    border:1px solid #007aff;
-    color:#007aff;
-    text-decoration:none;
+  display:inline-block;
+  margin-top:12px;
+  padding:8px 16px;
+  border-radius:6px;
+  border:1px solid #2563eb;
+  color:#2563eb;
+  text-decoration:none;
+  font-size:14px;
+  transition:0.25s;
 }
 
 .btn:hover{
-    background:#007aff;
-    color:#fff;
+  background:#2563eb;
+  color:#fff;
 }
 
 /* PDF */
 iframe{
-    width:100%;
-    height:400px;
-    margin-top:15px;
-    border-radius:10px;
+  width:100%;
+  height:420px;
+  margin-top:15px;
+  border-radius:10px;
+  border:1px solid #ddd;
 }
 
-/* VIDEO */
-.video{
-    width:100%;
-    height:400px;
-    border-radius:10px;
+/* CONTACT */
+.contact a{
+  display:block;
+  margin-bottom:12px;
+  color:#2563eb;
+  text-decoration:none;
+  transition:0.3s;
 }
 
-/* ANIMATION */
-.fade{
-    opacity:0;
-    transform:translateY(30px);
-    transition:1s;
-}
-.fade.show{
-    opacity:1;
-    transform:translateY(0);
+.contact a:hover{
+  transform:translateX(6px);
 }
 
+/* FOOTER */
 footer{
-    text-align:center;
-    padding:30px;
-    color:#777;
+  text-align:center;
+  padding:40px;
+  color:#888;
+  font-size:14px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
+<!-- NAVBAR -->
 <nav>
-    <div>Amit</div>
-    <div>
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#video">Video</a>
-    </div>
+  <a href="#about" class="nav-link">About</a>
+  <a href="#skills" class="nav-link">Skills</a>
+  <a href="#research" class="nav-link">Research</a>
+  <a href="#contact" class="nav-link">Contact</a>
 </nav>
 
-<!-- HERO -->
+<!-- HEADER -->
 <header>
-    <h1>Amit Bhowmik</h1>
-    <p class="typing"></p>
+  <h1>Amit Bhowmik</h1>
+  <p>Market Analyst | Consumer Behaviour | Data-Driven Insights</p>
 </header>
 
 <!-- ABOUT -->
-<section id="about" class="fade">
-    <h2>About Me</h2>
-    <p>
-        I am a Market Analyst focused on understanding consumer behavior, data patterns, 
-        and business insights. I transform data into strategic decisions that create impact.
-    </p>
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I am a PGDM student specializing in market analysis and consumer behaviour.
+    I focus on understanding how people make decisions and translating data into
+    meaningful business insights.
+  </p>
 </section>
 
 <!-- SKILLS -->
-<section class="fade">
-    <h2>Skills</h2>
-    <p>Excel • SPSS • Power BI • SQL • Tally • PowerPoint</p>
+<section id="skills">
+  <h2>Skills</h2>
+  <p>MS Excel • SPSS • Power BI • SQL • Tally • PowerPoint</p>
 </section>
 
 <!-- RESEARCH -->
-<section id="research" class="fade">
-    <h2>Research & Case Studies</h2>
+<section id="research">
+  <h2>Research & Field Work</h2>
 
-    <div class="card">
-        <h3>AI vs Human Creativity</h3>
-        <p>Analyzing the impact of AI on human creativity and originality.</p>
-        <a href="research.pdf" target="_blank" class="btn">View Research →</a>
-        <iframe src="research.pdf"></iframe>
-    </div>
+  <div class="card">
+    <h3>AI vs Human Creativity</h3>
+    <p>Research on the impact of AI on creativity and decision-making.</p>
+    <a href="research.pdf" target="_blank" class="btn">View Research</a>
+    <iframe src="research.pdf"></iframe>
+  </div>
 
-    <div class="card">
-        <h3>Consumer Behaviour Study</h3>
-        <p>Field research conducted at Grand Venice Mall on buying behavior.</p>
-        <a href="field-report.pdf" target="_blank" class="btn">View Report →</a>
-        <iframe src="field-report.pdf"></iframe>
-    </div>
+  <div class="card">
+    <h3>Consumer Behaviour Field Study</h3>
+    <p>Field study analyzing real-time consumer decisions in different environments.</p>
+    <a href="field-report.pdf" target="_blank" class="btn">View Report</a>
+    <iframe src="field-report.pdf"></iframe>
+  </div>
 
 </section>
 
-<!-- VIDEO -->
-<section id="video" class="fade">
-    <h2>Travel Story</h2>
-    <iframe class="video" src="https://www.youtube.com/embed/IKMuNhfclac" allowfullscreen></iframe>
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <h2>Contact</h2>
+
+  <a href="https://www.linkedin.com/in/amit-bhowmik-922542376" target="_blank">
+    LinkedIn Profile
+  </a>
+
+  <a href="mailto:bhowmika753@gmail.com">
+    Email: bhowmika753@gmail.com
+  </a>
+
+  <a href="tel:+918250782791">
+    Phone: +91 8250782791
+  </a>
+
+  <a href="https://wa.me/918250782791" target="_blank">
+    WhatsApp Chat
+  </a>
+
 </section>
 
+<!-- FOOTER -->
 <footer>
-    © 2026 Amit Bhowmik | Built for Impact
+  © 2026 Amit Bhowmik — Portfolio
 </footer>
 
 <script>
-/* Typing Effect */
-const text = "Market Analyst | Data Storyteller";
-let i = 0;
-function typing(){
-    if(i < text.length){
-        document.querySelector(".typing").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typing, 60);
-    }
-}
-typing();
+// Scroll reveal
+const sections = document.querySelectorAll("section");
 
-/* Scroll Animation */
-const faders = document.querySelectorAll('.fade');
-window.addEventListener('scroll', () => {
-    faders.forEach(el => {
-        const top = el.getBoundingClientRect().top;
-        if(top < window.innerHeight - 100){
-            el.classList.add('show');
-        }
-    });
+window.addEventListener("scroll",()=>{
+  sections.forEach(sec=>{
+    const top = sec.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      sec.classList.add("show");
+    }
+  });
+});
+
+// Active nav highlight
+const navLinks = document.querySelectorAll(".nav-link");
+
+window.addEventListener("scroll",()=>{
+  let current = "";
+
+  sections.forEach(sec=>{
+    const top = window.scrollY;
+    const offset = sec.offsetTop - 150;
+    const height = sec.offsetHeight;
+
+    if(top >= offset && top < offset + height){
+      current = sec.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach(link=>{
+    link.classList.remove("active");
+    if(link.getAttribute("href").includes(current)){
+      link.classList.add("active");
+    }
+  });
 });
 </script>
 
