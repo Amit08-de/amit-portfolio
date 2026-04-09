@@ -5,122 +5,134 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Amit Bhowmik | Market Analyst</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
   font-family:'Inter',sans-serif;
-  background:#0a0a0a;
+  background:#000;
   color:#fff;
-  scroll-behavior:smooth;
+  overflow-x:hidden;
 }
 
-/* NAV */
+/* ===== BACKGROUND GLOW ===== */
+body::before, body::after{
+  content:"";
+  position:fixed;
+  width:500px;
+  height:500px;
+  filter:blur(120px);
+  z-index:-1;
+}
+body::before{background:#4da6ff;top:-100px;left:-100px;}
+body::after{background:#9333ea;bottom:-100px;right:-100px;}
+
+/* ===== NAV ===== */
 nav{
   position:fixed;
-  top:0;
   width:100%;
-  background:rgba(0,0,0,0.7);
-  backdrop-filter:blur(10px);
+  padding:20px 10%;
   display:flex;
-  justify-content:center;
-  gap:30px;
-  padding:15px;
-  z-index:1000;
+  justify-content:space-between;
+  backdrop-filter:blur(15px);
+  z-index:10;
 }
-
 nav a{
   color:#aaa;
+  margin-left:20px;
   text-decoration:none;
-  position:relative;
+  transition:0.3s;
 }
+nav a:hover, nav a.active{color:#fff}
 
-nav a.active,
-nav a:hover{
-  color:#4da6ff;
-}
-
-/* HEADER */
-header{
+/* ===== HERO ===== */
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   text-align:center;
-  padding:140px 20px 80px;
 }
-
-header h1{
-  font-size:48px;
+.hero h1{
+  font-size:70px;
+  font-weight:700;
+  background:linear-gradient(90deg,#fff,#aaa);
+  -webkit-background-clip:text;
+  color:transparent;
 }
-
-header p{
-  color:#aaa;
+.hero p{
   margin-top:10px;
+  color:#aaa;
 }
 
-/* SECTION */
+/* ===== SECTION ===== */
 section{
-  max-width:900px;
-  margin:auto;
-  padding:80px 20px;
+  padding:120px 10%;
   opacity:0;
-  transform:translateY(40px);
-  transition:0.8s;
-  border-bottom:1px solid #222;
+  transform:translateY(60px);
+  transition:1s;
 }
 section.show{
   opacity:1;
   transform:translateY(0);
 }
 
-h2{
-  font-size:28px;
-  margin-bottom:20px;
-}
-
-/* CARD */
+/* ===== CARD ===== */
 .card{
-  background:#111;
-  padding:25px;
-  border-radius:12px;
-  margin-bottom:20px;
-  transition:0.3s;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(20px);
+  border-radius:20px;
+  padding:30px;
+  margin-top:20px;
+  transition:0.4s;
 }
 .card:hover{
-  transform:translateY(-5px);
+  transform:translateY(-10px) scale(1.02);
 }
 
-/* BUTTON */
+/* ===== BUTTON ===== */
 .btn{
   display:inline-block;
-  margin-top:10px;
-  padding:8px 16px;
-  border-radius:6px;
+  margin-top:15px;
+  padding:10px 25px;
+  border-radius:30px;
   border:1px solid #4da6ff;
   color:#4da6ff;
   text-decoration:none;
+  transition:0.3s;
 }
 .btn:hover{
   background:#4da6ff;
   color:#000;
 }
 
-/* PDF */
+/* ===== GRID ===== */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:25px;
+}
+
+/* ===== MEDIA ===== */
 iframe{
   width:100%;
-  height:420px;
-  margin-top:15px;
-  border-radius:10px;
+  height:500px;
   border:none;
+  border-radius:15px;
 }
 
-/* CONTACT */
+/* ===== CONTACT ===== */
 .contact a{
   display:block;
-  margin-bottom:10px;
+  margin:10px 0;
   color:#4da6ff;
+  text-decoration:none;
 }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 footer{
   text-align:center;
   padding:40px;
@@ -133,128 +145,133 @@ footer{
 
 <!-- NAV -->
 <nav>
-  <a href="#about" class="nav-link">About</a>
-  <a href="#skills" class="nav-link">Skills</a>
-  <a href="#research" class="nav-link">Research</a>
-  <a href="#video" class="nav-link">Travel</a>
-  <a href="#contact" class="nav-link">Contact</a>
+<div>Amit</div>
+<div>
+<a href="#about" class="nav-link">About</a>
+<a href="#skills" class="nav-link">Skills</a>
+<a href="#work" class="nav-link">Work</a>
+<a href="#travel" class="nav-link">Travel</a>
+<a href="#contact" class="nav-link">Contact</a>
+</div>
 </nav>
 
-<!-- HEADER -->
-<header>
-  <h1>Amit Bhowmik</h1>
-  <p>Market Analyst | Consumer Behaviour | Data-Driven Insights</p>
-</header>
+<!-- HERO -->
+<div class="hero">
+<h1>Amit Bhowmik</h1>
+<p>Market Analyst | Consumer Behaviour | Data-Driven Insights</p>
+</div>
 
 <!-- ABOUT -->
 <section id="about">
-  <h2>About Me</h2>
-  <p>
-    I am a PGDM student focused on market analysis and consumer behaviour.
-    I convert real-world observations into actionable business insights.
-  </p>
+<h2>About Me</h2>
+<div class="card">
+I am a PGDM student focused on market analysis and understanding consumer decision-making. I transform data and real-world observations into actionable business insights.
+</div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
-  <h2>Skills</h2>
-  <p>MS Excel • SPSS • Power BI • SQL • Tally • PowerPoint</p>
+<h2>Skills</h2>
+<div class="card">
+MS Excel • SPSS • Power BI • SQL • Tally • PowerPoint
+</div>
 </section>
 
-<!-- RESEARCH -->
-<section id="research">
-  <h2>Research & Field Work</h2>
+<!-- WORK -->
+<section id="work">
+<h2>Research & Case Studies</h2>
 
-  <div class="card">
-    <h3>AI vs Human Creativity</h3>
-    <p>Research on AI’s impact on creativity.</p>
-    <a href="research.pdf" target="_blank" class="btn">View Research</a>
-    <iframe src="research.pdf"></iframe>
-  </div>
+<div class="grid">
 
-  <div class="card">
-    <h3>Consumer Behaviour Study</h3>
-    <p>Field study on real consumer decision making.</p>
-    <a href="field-report.pdf" target="_blank" class="btn">View Report</a>
-    <iframe src="field-report.pdf"></iframe>
-  </div>
+<div class="card">
+<h3>AI vs Human Creativity</h3>
+<p>Research analyzing how AI impacts creativity and thinking patterns.</p>
+<a href="research.pdf" target="_blank" class="btn">View Research</a>
+</div>
+
+<div class="card">
+<h3>Consumer Behaviour Study</h3>
+<p>Field research at Grand Venice Mall analyzing real-world buying behavior.</p>
+<a href="field-report.pdf" target="_blank" class="btn">View Report</a>
+</div>
+
+</div>
+
+<h3 style="margin-top:50px;">Research Preview</h3>
+<iframe src="research.pdf"></iframe>
+
+<h3 style="margin-top:50px;">Field Study Preview</h3>
+<iframe src="field-report.pdf"></iframe>
 
 </section>
 
-<!-- 🎥 VIDEO SECTION (FIXED) -->
-<section id="video">
-  <h2>Travel Experience</h2>
-
-  <div class="card">
-    <p>
-      Travel helps me understand diverse consumer perspectives and real-world behavior.
-    </p>
-
-    <iframe src="https://www.youtube.com/embed/IKMuNhfclac" allowfullscreen></iframe>
-  </div>
-
+<!-- TRAVEL -->
+<section id="travel">
+<h2>Travel Experience</h2>
+<div class="card">
+<p>Travel helps me understand diverse consumer perspectives and behavior patterns.</p>
+<iframe src="https://www.youtube.com/embed/IKMuNhfclac"></iframe>
+</div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="contact">
-  <h2>Contact</h2>
+<h2>Contact</h2>
 
-  <a href="https://www.linkedin.com/in/amit-bhowmik-922542376" target="_blank">
-    LinkedIn Profile
-  </a>
+<a href="https://www.linkedin.com/in/amit-bhowmik-922542376" target="_blank">
+LinkedIn Profile
+</a>
 
-  <a href="mailto:bhowmika753@gmail.com">
-    Email: bhowmika753@gmail.com
-  </a>
+<a href="mailto:bhowmika753@gmail.com">
+Email: bhowmika753@gmail.com
+</a>
 
-  <a href="tel:+918250782791">
-    Phone: +91 8250782791
-  </a>
+<a href="tel:+918250782791">
+Phone: +91 8250782791
+</a>
 
-  <a href="https://wa.me/918250782791" target="_blank">
-    WhatsApp Chat
-  </a>
+<a href="https://wa.me/918250782791" target="_blank">
+WhatsApp Chat
+</a>
 
 </section>
 
-<!-- FOOTER -->
 <footer>
-  © 2026 Amit Bhowmik — Portfolio
+© 2026 Amit Bhowmik — Portfolio
 </footer>
 
 <script>
-// Scroll reveal
-const sections = document.querySelectorAll("section");
+// Scroll animation
+const sections=document.querySelectorAll("section");
 
 window.addEventListener("scroll",()=>{
-  sections.forEach(sec=>{
-    if(sec.getBoundingClientRect().top < window.innerHeight - 100){
-      sec.classList.add("show");
-    }
-  });
+sections.forEach(sec=>{
+if(sec.getBoundingClientRect().top<window.innerHeight-100){
+sec.classList.add("show");
+}
+});
 });
 
 // Active nav
-const navLinks = document.querySelectorAll(".nav-link");
+const navLinks=document.querySelectorAll(".nav-link");
 
 window.addEventListener("scroll",()=>{
-  let current="";
-  sections.forEach(sec=>{
-    const top=window.scrollY;
-    const offset=sec.offsetTop-150;
-    const height=sec.offsetHeight;
+let current="";
+sections.forEach(sec=>{
+const top=window.scrollY;
+const offset=sec.offsetTop-150;
+const height=sec.offsetHeight;
+if(top>=offset && top<offset+height){
+current=sec.id;
+}
+});
 
-    if(top>=offset && top<offset+height){
-      current=sec.id;
-    }
-  });
-
-  navLinks.forEach(link=>{
-    link.classList.remove("active");
-    if(link.getAttribute("href").includes(current)){
-      link.classList.add("active");
-    }
-  });
+navLinks.forEach(link=>{
+link.classList.remove("active");
+if(link.getAttribute("href").includes(current)){
+link.classList.add("active");
+}
+});
 });
 </script>
 
